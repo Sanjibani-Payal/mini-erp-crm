@@ -5,9 +5,9 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "npx prisma generate && npx prisma db push && npx ts-node prisma/seed.ts && tsc",
+    "build": "chmod +x node_modules/.bin/* && node node_modules/prisma/build/index.js generate && node node_modules/prisma/build/index.js db push && node node_modules/ts-node/dist/bin.js prisma/seed.ts && node node_modules/typescript/bin/tsc",
     "start": "node dist/server.js",
-    "seed": "npx ts-node prisma/seed.ts"
+    "seed": "node node_modules/ts-node/dist/bin.js prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
